@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap demo</title>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous"> -->
+</head>
+
+
+
+<body>
+
+  <div class="container">
+    <div align="center">
+      <h1>Sistema de Empleados</h1>
+    </div>
+    <h2>Registrar Informacion Personal</h2>
+    <div class="container" style=" background-color: grey;">
+      <br>
+      <div class="form-group row">
+        <div class="col-sm-6 mb-3 mb-sm-0">
+          <label class="form-label">Nombre</label>
+          <input type="text" class="form-control" id="Nombre">
+        </div>
+        <div class="col-sm-6">
+          <label class="form-label"> Apellido </label>
+          <input type="text" class="form-control" id="Apellido">
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-sm-6 mb-3 mb-sm-0">
+          <label class="form-label">Fecha De Nacimiento</label>
+          <input type="date" class="form-control" id="Fecha-Na">
+        </div>
+        <div class="col-sm-6">
+          <label class="form-label">Fecha De Ingreso</label>
+          <input type="date" class="form-control" id="Fecha-In">
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-sm-6 mb-3 mb-sm-0">
+          <label class="form-label">Sexo</label>
+          <input type="text" class="form-control" id="sexo">
+        </div>
+        <div class="col-sm-6">
+          <label class="form-label">Salario</label>
+          <input type="number" class="form-control" id="salario">
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-sm-6 mb-3 mb-sm-0">
+          <label class="form-label">Fotografía</label>
+          <form action="">
+            <input type="file" class="form-control" id="foto">
+
+          </form>
+        </div>
+        <div class="col-sm-6">
+          <hr>
+          <button type="button" class="btn btn-primary" onclick="guardarDatos()">Guardar y Visualizar Datos</button>
+        </div>
+      </div>
+      <br>
+    </div>
+  </div>
+  <div id="cargar" style="display: block;">
+    <div class="container">
+      <div class="row">
+        <h2>Informacion Personal</h2>
+        <div class=" col-6" class="container" style=" background-color: grey;">
+          <br>
+          <div class="container" style="width: 20rem;">
+
+            <label class="form-label">Nombre</label>
+            <input type="text" disabled class="form-control" id="NombreGuardado">
+
+            <label> Apellido </label>
+            <input type="text" disabled class="form-control" id="ApellidoGuardado">
+
+            <label class="form-label">Sexo</label>
+            <input type="text" disabled class="form-control" id="sexoGuardado">
+
+            <label class="form-label">Fecha De Nacimiento</label>
+            <input type="date" disabled class="form-control" id="FechaNaGuardada">
+
+            <label class="form-label">Fecha De Ingreso</label>
+            <input type="date" disabled class="form-control" id="FechaInGuardada">
+          </div>
+        </div>
+
+        <div class=" col-6" style=" background-color: grey;">
+          <br>
+          <div id="imagen">
+            <!-- <img src="img/PAPEL2.jpg" class="card-img-top" alt="..."> -->
+          </div>
+          <br>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="container" style=" background-color: grey;">
+      <br>
+      <h2>Salario</h2>
+      <div class="form-group row">
+        <div class="col-sm-6 mb-3 mb-sm-0">
+          <input type="text" disabled class="form-control" id="salarioGuardado">
+        </div>
+        <div class="col-sm-6">
+          <button type="button" onclick="modificarSalario()" class="btn btn-primary mb-3">Modificar</button>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="container" style=" background-color: grey;"><br>
+      <h2>Calculos</h2>
+      <div align="center" class="col-auto" style="width: 18rem;">
+        <button type="submit" onclick="calcularEdad()" class="btn btn-primary mb-3">Calcular Edad</button>
+        <input type="text" disabled class="form-control col-sm-3" id="edad">
+      </div>
+      <hr>
+      <div align="center" class="col-auto" style="width: 18rem;">
+        <button type="submit" onclick="calcularAntiguedad()" class="btn btn-primary mb-3">Calcular Antiguedad</button>
+        <input type="text" disabled class="form-control" id="antiguedad">
+      </div>
+      <hr>
+      <div align="center" class="col-auto" style="width: 18rem;">
+        <button type="submit" onclick="calcularPrestaciones()" class="btn btn-primary mb-3">Calcular
+          Prestaciones</button>
+        <input type="text" disabled class="form-control" id="prestaciones">
+
+      </div>
+      <br>
+    </div>
+    <br>
+
+    <div class="container" style=" background-color: grey;">
+
+      <h2>Puntos De extencion</h2>
+
+      <form class="row g-30">
+
+
+        <div align="center" class="col-auto">
+          <button type="submit" class="btn btn-primary mb-3">Calcular Antiguedad</button>
+        </div>
+
+        <div align="center" class="col-auto">
+          <input type="text" class="form-control" id="Modificar">
+        </div>
+
+        <div align="center" class="col-auto">
+          <button type="submit" class="btn btn-primary mb-3">Calcular Prestaciones</button>
+        </div>
+
+        <div align="center" class="col-auto">
+          <input type="text" class="form-control" id="Modificar">
+        </div>
+
+      </form>
+
+
+
+    </div>
+  </div>
+  <script>
+    const foto = document.getElementById('foto');
+    const imagen = document.getElementById('imagen');
+    imagen.innerHTML='Seleccione una imagen';
+    foto.addEventListener('change', () => {
+      // Verificar si se seleccionó un archivo
+      if (foto.files && foto.files[0]) {
+        const reader = new FileReader();
+
+        // Leer el archivo como URL de datos
+        reader.readAsDataURL(foto.files[0]);
+
+        // Cuando la lectura se haya completado
+        reader.onload = (event) => {
+          // Crear un elemento de imagen
+          imagen.innerHTML = '<img src="' + event.target.result + '" class="card-img-top" alt="...">';
+
+          // Agregar la imagen al div de previsualización
+        };
+      }
+    });
+  </script>
+  <script type="text/javascript" src="js/functions.js"></script>
+</body>
+<footer class="sticky-footer bg-white">
+  <div class="container my-auto">
+    <div class="copyright text-center my-auto">
+      <span>Copyright &copy; Your Website 2020</span>
+    </div>
+  </div>
+</footer>
+
+</html>
